@@ -10,3 +10,7 @@ The BBRR project is a test platform for discovering data within the replay files
 NOTE: In order to connect to the sqlite databases, you currently need to install the sqlite PDO package on the server you will run this code from. `sudo apt-get install php5-sqlite` will install the necessary package on your machine if necessary.
 
 Contact: dmchale@gmail.com
+
+<a href="https://codeclimate.com/github/dmchale/BBRR"><img src="https://codeclimate.com/github/dmchale/BBRR/badges/gpa.svg" /></a>
+
+<a href="https://codeclimate.com/github/dmchale/BBRR"><img src="https://codeclimate.com/github/dmchale/BBRR/badges/issue_count.svg" /></a>
