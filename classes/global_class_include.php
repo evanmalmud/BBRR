@@ -1,3 +1,3 @@
 <?php
-require_once("sqliteDB.php");
-require_once("BBR_lookups.php");
+require_once("SQLiteDB.php");
+require_once("BBRRTeam.php");
