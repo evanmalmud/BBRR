@@ -81,8 +81,8 @@ function getTeam1FromTeamDeclaration( $line ) {
     $tmpString = substr( $line, 18 );                                       // Trim ` | | GameLog(06): ` off the beginning
     $tmpString = substr( $tmpString, 0, strpos( $tmpString, " vs " ) );     // Get everything up to "vs"
 
-    $teamName = substr( $tmpString, 0, strlen( $tmpString ) - 5 );          // Trim off the `(XXX)` at the end
-    $teamShorthand = substr( $tmpString, strlen( $tmpString ) - 4, 3);      // Get XXX from inside of `(XXX)`
+    $teamName = substr( $tmpString, 0, strlen( $tmpString ) - 5 );          // Trim off the `(NNN)` at the end
+    $teamShorthand = substr( $tmpString, strlen( $tmpString ) - 4, 3);      // Get NNN from inside of `(NNN)`
 
     $arrTeams[$teamShorthand]["Name"] = $teamName;
 
@@ -95,8 +95,8 @@ function getTeam2FromTeamDeclaration( $line ) {
 
     $tmpString = trim( strrev( substr( strrev( $line ), 0, strpos( strrev( $line ), " sv " ) ) ) );     // Get everything after " vs "
 
-    $teamName = substr( $tmpString, 0, strlen( $tmpString ) - 5 );          // Trim off the `(XXX)` at the end
-    $teamShorthand = substr( $tmpString, strlen( $tmpString ) - 4, 3);      // Get XXX from inside of `(XXX)`
+    $teamName = substr( $tmpString, 0, strlen( $tmpString ) - 5 );          // Trim off the `(NNN)` at the end
+    $teamShorthand = substr( $tmpString, strlen( $tmpString ) - 4, 3);      // Get NNN from inside of `(NNN)`
 
     $arrTeams[$teamShorthand]["Name"] = $teamName;
 
