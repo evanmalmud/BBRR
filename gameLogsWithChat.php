@@ -8,6 +8,8 @@ if ( isset( $_REQUEST["logFile"] ) ) {
 
     $arrLog = file( "replays/" . $_REQUEST["logFile"] );
 
+    $arrTeams;
+
     showGameLog();
 
 }
@@ -24,37 +26,35 @@ if ( isset( $_REQUEST["logFile"] ) ) {
 function showGameLog()
 {
     global $arrLog;
+    global $arrTeams;
+
+    $lastLine = "";
+    $foundTeams = false;
 
     echo "<h3>Viewing Game Log: " . $_REQUEST["logFile"] . "</h3>";
 
     foreach ($arrLog as $line) {
-        if ( isGameLog( $line ) )
+
+        if ( ( ! $foundTeams ) && isTeamVsTeamDeclaration( $line ) ) {
+            $team1 = getTeam1FromTeamDeclaration($line);
+            $team2 = getTeam2FromTeamDeclaration($line);
+
+            echo "<span style=\"color:#00f; font-weight:bold; \">" . $arrTeams[$team1]["Name"] . "</span><br />";
+            echo "<span style=\"color:#00f; font-weight:bold; \">" . $arrTeams[$team2]["Name"] . "</span><br />";
+
+            $foundTeams = true;
+
+        } elseif ( isGameLog( $line ) ) {
             echo $line . "<br />";
-        elseif ( isChat( $line ) )
+        } elseif ( isChat( $line ) ) {
             echo "<span style=\"color: #f00;\">" . $line . "</span><br />";
-        elseif ( isBlockResult( $line ) )
-            echo "<span style=\"font-weight: bold;\">" . $line . "</span><br />";
+        } elseif ( isBlockResult( $line ) ) {
+            echo "<span style=\"font-weight: bold;\">" . $lastLine . "<br>" . $line . "</span><br />";
+        }
+
+        $lastLine = $line;
+
     }
 
 }
 
-function isGameLog( $line ) {
-    if ( substr( $line, 0, 14 ) == " |  | GameLog(" )
-        return true;
-    else
-        return false;
-}
-
-function isChat( $line ) {
-    if ( substr( $line, 0, 11 ) == " |  | Chat:" )
-        return true;
-    else
-        return false;
-}
-
-function isBlockResult( $line ) {
-    if ( substr( $line, 0, 1 ) == "[" )
-        return true;
-    else
-        return false;
-}
