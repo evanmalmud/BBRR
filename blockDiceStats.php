@@ -63,25 +63,23 @@ function printDiceStats()
     // Now display the block dice data from the teams array
     foreach ($arrTeams as $team) {
 
-        $teamName = $team["Name"];
+        $totalDice          = $team["attacker down"] + $team["both down"] + $team["pushed"] + $team["defender stumbles"] + $team["defender down"];
 
-        $totalDice = $team["attacker down"] + $team["both down"] + $team["pushed"] + $team["defender stumbles"] + $team["defender down"];
+        $skullAvg           = round($totalDice / 6, 2);
+        $bothDownAvg        = round($totalDice / 6, 2);
+        $pushedAvg          = round($totalDice / 3, 2);     // Remember there are 2x as many chances to roll a Push
+        $powBangAvg         = round($totalDice / 6, 2);
+        $powAvg             = round($totalDice / 6, 2);
 
-        $skullAvg = round($totalDice / 6, 2);
-        $bothDownAvg = round($totalDice / 6, 2);
-        $pushedAvg = round($totalDice / 3, 2);              // Remember there are 2x as many chances to roll a Push
-        $powBangAvg = round($totalDice / 6, 2);
-        $powAvg = round($totalDice / 6, 2);
+        $skullClass         = getCSSColor( $team["attacker down"], $skullAvg, "green", "red" );
+        $bothDownClass      = getCSSColor( $team["both down"], $bothDownAvg, "green", "red" );
+        $pushedClass        = getCSSColor( $team["pushed"], $pushedAvg, "green", "red" );
+        $powBangClass       = getCSSColor( $team["defender stumbles"], $powBangAvg, "green", "red" );
+        $powClass           = getCSSColor( $team["defender down"], $powAvg, "green", "red" );
+        $doubleSkullsClass  = getCSSColor( $team["double skulls"], 1, "red", "green" );
+        $doublePowsClass    = getCSSColor( $team["double pows"], 1, "green", "black" );
 
-        $skullClass = $team["attacker down"] >= $skullAvg ? "green" : "red";
-        $bothDownClass = $team["both down"] >= $bothDownAvg ? "green" : "red";
-        $pushedClass = $team["pushed"] >= $pushedAvg ? "green" : "red";
-        $powBangClass = $team["defender stumbles"] >= $powBangAvg ? "green" : "red";
-        $powClass = $team["defender down"] >= $powAvg ? "green" : "red";
-        $doubleSkullsClass = $team["double skulls"] > 0 ? "red" : "green";
-        $doublePowsClass = $team["double pows"] > 0 ? "green" : "black";
-
-        echo "<h3>" . $teamName . "</h3>";
+        echo "<h3>" . $team["Name"] . "</h3>";
         echo "<ul>";
         echo "<li style=\"color:" . $skullClass . "\">Attacker Down: " . $team["attacker down"] . " (avg " . $skullAvg . ")</li>";
         echo "<li style=\"color:" . $bothDownClass . "\">Both Down: " . $team["both down"] . " (avg " . $bothDownAvg . ")</li>";
@@ -93,4 +91,8 @@ function printDiceStats()
         echo "<li>TOTAL DICE: " . $totalDice . "</li>";
         echo "</ul>";
     }
+}
+
+function getCSSColor( $dice, $average, $color1, $color2 ) {
+    return $dice >= $average ? $color1 : $color2;
 }
