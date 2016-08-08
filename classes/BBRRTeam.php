@@ -15,9 +15,9 @@ class BBRRTeam {
         $raceDefinitions[9]     = "Chaos Dwarf";
         $raceDefinitions[10]    = "Khemri";
         $raceDefinitions[11]    = "Khorne Daemon";
-        $raceDefinitions[12]    = "Lizardmen";
+        $raceDefinitions[12]    = "Norse";          // CONFIRMED
         $raceDefinitions[13]    = "Necromantic";
-        $raceDefinitions[14]    = "Norse";
+        $raceDefinitions[14]    = "Lizardmen";
         $raceDefinitions[15]    = "Nurgle";
         $raceDefinitions[16]    = "Ogre";
         $raceDefinitions[17]    = "Orc";
