@@ -3,14 +3,14 @@ class BBRRTeam {
 
     public static function getTeamRace( $idRaces ) {
 
-        $raceDefinitions[0]     = "Amazon";
+        $raceDefinitions[0]     = "Halfling";       // CONFIRMED
         $raceDefinitions[1]     = "Human";          // CONFIRMED
         $raceDefinitions[2]     = "Dwarf";          // CONFIRMED
         $raceDefinitions[3]     = "Skaven";         // CONFIRMED
         $raceDefinitions[4]     = "Dark Elf";
         $raceDefinitions[5]     = "Elf";
         $raceDefinitions[6]     = "Goblin";
-        $raceDefinitions[7]     = "Halfling";
+        $raceDefinitions[7]     = "Amazon";
         $raceDefinitions[8]     = "Chaos";          // CONFIRMED
         $raceDefinitions[9]     = "Chaos Dwarf";
         $raceDefinitions[10]    = "Khemri";
