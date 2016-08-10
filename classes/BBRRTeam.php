@@ -3,7 +3,7 @@ class BBRRTeam {
 
     public static function getTeamRace( $idRaces ) {
 
-        $raceDefinitions[0]     = "Halfling";       // CONFIRMED
+        $raceDefinitions[0]     = "Stars";          // CONFIRMED
         $raceDefinitions[1]     = "Human";          // CONFIRMED
         $raceDefinitions[2]     = "Dwarf";          // CONFIRMED
         $raceDefinitions[3]     = "Skaven";         // CONFIRMED
@@ -14,7 +14,7 @@ class BBRRTeam {
         $raceDefinitions[8]     = "Chaos";          // CONFIRMED
         $raceDefinitions[9]     = "Dark Elf";       // CONFIRMED
         $raceDefinitions[10]    = "Khemri";
-        $raceDefinitions[11]    = "Khorne Daemon";
+        $raceDefinitions[11]    = "Halflings";      // CONFIRMED
         $raceDefinitions[12]    = "Norse";          // CONFIRMED
         $raceDefinitions[13]    = "Amazon";         // CONFIRMED
         $raceDefinitions[14]    = "Lizardmen";  
@@ -26,6 +26,7 @@ class BBRRTeam {
         $raceDefinitions[20]    = "Underworld";
         $raceDefinitions[21]    = "Vampire";
         $raceDefinitions[22]    = "Wood Elf";
+	$raceDefinitions[22]    =  "Khorne Daemon";
 
         // Remember this is 0-indexed!
         if ( (int)$idRaces >= 0 && (int)$idRaces < count( $raceDefinitions ) )

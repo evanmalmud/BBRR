@@ -8,5 +8,11 @@
     <li><a href="gameLogsWithChat.php">View Rough Game Log, with Chat</a></li>
 </ul>
 
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    Select file to upload:
+    <input type="file" name="uploadFile"><br>
+    <input type="submit" value="Upload" name="submit">
+</form>
+
 </body>
 </html>
