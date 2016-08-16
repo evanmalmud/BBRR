@@ -5,11 +5,19 @@
 <body>
 
 <?php
-//NEED /srv/uploads/ folder with correct permissions
 //Need php.ini file_uploads=on
-//Cant figure out permissions for upload to replays folder.
+//sudo chown apache:apache -R /var/www/html/BBRR
+//cd /var/www/html/BBRR
+//# File permissions, recursive
+//find . -type f -exec chmod 0644 {} \;
+//# Dir permissions, recursive
+//find . -type d -exec chmod 0755 {} \;
+//# SELinux serve files off Apache, resursive
+//sudo chcon -t httpd_sys_content_t /var/www/html/BBRR -R
+//# Allow write only to specific dirs
+//sudo chcon -t httpd_sys_rw_content_t /var/www/html/BBRR/replays -R
 
-define("UPLOAD_DIR", "/srv/uploads/");
+define("UPLOAD_DIR", "replays/");
 echo UPLOAD_DIR;
 if (!empty($_FILES["uploadFile"])) {
 	echo "inside";

@@ -85,7 +85,7 @@ echo '<tr>	<th>Number</th>
 
 	echo '<td>';
 	foreach ( $row["Skills"] as $skill) {
-	  echo BBRRSkills::getSkill($skill),", ";
+          echo '( ',BBRRSkills::getSkill($skill),', ',$skill,'), ';
 	}
 	echo '</td>';
 	echo '</tr>';
